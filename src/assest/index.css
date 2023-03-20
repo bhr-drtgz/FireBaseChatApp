@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: rgb(14, 80, 80);
+}
+.auth{
+     width: 30%;
+     height: 60%;
+     background-color: white;
+     border-radius: 5px;
+     display: grid;
+     place-items: center;
+ 
+ }
+.auth h1{
+     text-align: center;
+     padding: 10px;
+     color: rgb(14, 80, 80);
+   
+}
+.auth p{
+    font-weight: 800;
+
+}
+.auth button{
+    background-color: rgb(14, 80, 80);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px black;
+    border: none;
+  }
+  .roomContainer{
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .roomContainer h1{
+    color: rgb(14, 80, 80);
+    font-weight: 800;
+    border-bottom: 3px solid black;
+  }
+  .roomContainer p{
+    font-weight: 800;
+  }
+  .roomContainer input{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: rgb(14, 80, 80);
+    }
+   .roomContainer button{
+    background-color: rgb(14, 80, 80);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px black;
+    border: none;
+    }
+    .roomContainer button:nth-last-child(1){
+     background-color: yellow;
+     color: black;
+    }
+    .chat{
+        position: relative;
+        width: 45%;
+        height: 75%;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+     }
+    .chatInfo{
+        width: 100%;
+        height: 15%;
+        padding: 10px 10px;
+        border-top-right-radius: 10px;
+        border-top-left-radius:10px ;
+        background-color: rgb(200, 200, 4);
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .chatInfo a{
+        background-color: rgb(14, 80, 80);
+        padding: 8px 8px;
+        border-radius: 5px;
+        border-radius: 5px;
+        font-size: 15px;
+        text-decoration: none;
+        box-shadow: 3px 3px 3px black;
+        color: white;
+        font-weight: 800;
+     }
+     .chatInfo h2{
+        color:black;
+        font-weight: 800;
+        border-bottom: 3px solid black;
+     }
+     .chatInfo p{
+        color:green;
+        font-weight: 800;
+        font-size: 15px;
+        border-bottom: 3px solid green;
+      }
+      .chatSecond{
+        background-color: rgb(200, 200, 4);
+        width: 100%;
+        height: 20%;
+      }
+      form{
+        display: grid;
+        place-items: center;
+    }
+    form input{
+     width: 90%;
+     height: 30px;
+     background-color: white;
+     border: none;
+     border-radius: 10px;
+     margin: 10px 10px;
+    }
+    form button{
+        width: 200px;
+        font-weight: 800;
+        background-color: rgb(14, 80, 80);
+        padding: 5px 5px;
+        border: none;
+        border-radius: 3px;
+        color: black;
+        cursor: pointer;
+        box-shadow: 3px 3px 3px black;
+    }
