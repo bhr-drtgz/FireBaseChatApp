@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { db, auth } from './../fireBase/FirebaseConfig';
 
 const Chat = ({ room }) => {
     const [newMsg, setNewMsg] = useState("")
-    const [messages, setMessages] = useState([])
-    const messageRef = collection(db, "Message")
+    const [messages, setMessages] = useState([]);
+    const messageRef = collection(db, "Message");
+
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         if (!newMsg) return;
         addDoc(messageRef, {
             text: newMsg,
             user: auth.currentUser.displayName,
             room: room,
             createdAt: serverTimestamp(),
-        })
-        console.log(newMsg)
+        });
         setNewMsg("")
-    }
+    };
+
     useEffect(() => {
         const queryMessage = query(
             messageRef,
             where("room", "==", room),
             orderBy("createdAt")
-        )
-        let commingMessages = []
-        onSnapshot(queryMessage, ((snapShot) =>
-            snapShot.forEach((doc) => {
+        );
+        onSnapshot(queryMessage, (snapShot) => {
+            let commingMessages = [];
+             snapShot.forEach((doc) => {
                 commingMessages.push({ ...doc.data(), id: doc.id })
             })
-        ))
-        setMessages(commingMessages)
+            setMessages(commingMessages)
+        })
     }, [])
     return (
         <div className='chat'>
@@ -42,9 +43,16 @@ const Chat = ({ room }) => {
             <div className='chatMessage'>
                 {
                     messages.map((message) => (
-                        <p key={new Date()} >{message.text}</p>
-                    ))
-                }
+                        <>
+                            {
+                                auth.currentUser.displayName === message.user ? (
+                                    <p className='userMessege'>{message.text}</p>
+                                ) : (
+                                    <p><span>{message.user}</span><span>{message.text}</span></p>
+                                )
+                            }
+                        </>
+                    ))}
             </div>
             <div className='chatSecond'>
                 <form onSubmit={handleSubmit}>
