@@ -6,11 +6,14 @@ import "./assest/index.css"
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("token"));
   const [room, setRoom] = useState(null)
+
   const inputRef = useRef(null)
   if (!isAuth) {
-    <div className="container">
-      <Auth setIsAuth={setIsAuth} />
-    </div>
+    return (
+      <div className="container">
+        <Auth setIsAuth={setIsAuth} />
+      </div>
+    )
   }
 
   return (
@@ -18,7 +21,7 @@ function App() {
       {
         room ?
           (
-            <Chat room={room}/>
+            <Chat room={room} />
           )
           : (
             <div className="roomContainer">
@@ -28,7 +31,7 @@ function App() {
               <button onClick={() => setRoom(inputRef.current.value)} id="enter">Odaya Giriş Yap</button>
               <button id="leave">Çıkış Yap</button>
             </div>
-           )
+          )
       }
     </div>
   );

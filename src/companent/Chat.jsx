@@ -48,7 +48,7 @@ const Chat = ({ room }) => {
                                 auth.currentUser.displayName === message.user ? (
                                     <p className='userMessege'>{message.text}</p>
                                 ) : (
-                                    <p><span>{message.user}</span><span>{message.text}</span></p>
+                                    <p className='messageWrap'><span className='messageInfo'>{message.user}:</span><span className='infoText'>{message.text}</span></p>
                                 )
                             }
                         </>
